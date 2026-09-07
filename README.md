@@ -195,7 +195,7 @@ model-generated code, prompts and outputs can contain dataset text.
 | Path | Purpose |
 | --- | --- |
 | `configs/protocol.yaml`, `configs/baseline.yaml` | Scientific settings |
-| `configs/environment.example.yaml` | Fields Xixian configures |
+| `configs/environment.example.yaml` | Fields you configures |
 | `tasks/` | Exact task instructions and adapter metadata |
 | `upstream/` | Pinned, instrumented OpenMLE-Evo source |
 | `frontis_mila/` | Lifecycle, recording, audit and export |
