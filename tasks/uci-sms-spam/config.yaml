@@ -1,0 +1,43 @@
+uuid: frontis-local-uci-sms-spam-v1
+task_name: uci-sms-spam
+task: binary-classification
+source: UCI-228
+modality: text
+benchmark: mlebench
+data_dir: /datasets/validation/uci-sms-spam
+interpreter_data_dir: data/s1/uci-sms-spam
+submit_dir: validation
+submit_data_dir_root: /datasets/validation
+evaluation_protocol: self_valid
+submit_repeats: 1
+higher_is_better: false
+theoretical_max: null
+theoretical_min: 0.0
+leaderboard_max: null
+leaderboard_min: null
+leaderboard_dir: null
+task_description: >-
+  Predict whether each SMS message is ham or spam. Hidden evaluation uses
+  binary log loss, so calibrated probabilities matter. Candidate execution is
+  CPU-only and offline.
+data_description: >-
+  DATA_DIR contains train.csv with id,text,label; test.csv with id,text; and
+  sample_submission.csv with id,ham,spam. Use only numpy, pandas, scipy, and
+  scikit-learn. Hidden labels are unavailable.
+public_system_prompt: "Use only visible files and installed offline CPU libraries."
+public_user_prompt: >-
+  Read DATA_DIR from the environment. Use deterministic validation within the
+  visible training data, print exactly `Final Validation Score: <number>` for
+  that visible validation, fit on all visible rows, and write
+  ./submission.csv with exactly id,ham,spam in test row order. Probabilities
+  must be finite, lie in [0,1], and sum to one. Do not use network or GPU code.
+sandbox:
+  resource: cpu
+  base_url: http://127.0.0.1:6580
+  job_timeout: 120
+  wait_timeout: 180
+  poll_interval: 1
+  use_score2reward: false
+  use_clear_run_log_score: true
+  trust_model_validation_score: false
+  verify_tls: false

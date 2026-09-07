@@ -1,0 +1,91 @@
+{
+  "sources": {
+    "sms": {
+      "filename": "sms-spam-228.zip",
+      "url": "https://archive.ics.uci.edu/static/public/228/sms+spam+collection.zip",
+      "sha256": "1587ea43e58e82b14ff1f5425c88e17f8496bfcdb67a583dbff9eefaf9963ce3"
+    },
+    "adult": {
+      "filename": "adult-2.zip",
+      "url": "https://archive.ics.uci.edu/static/public/2/adult.zip",
+      "sha256": "7537312dd56c2b98035880805ce99e68183a30ee468aa5329d6df0fbb3cc21bb"
+    },
+    "bike": {
+      "filename": "bike-sharing-275.zip",
+      "url": "https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip",
+      "sha256": "b70182d0d0508e9abbb79306ce5c0cec34869000f8220175ac83d11dbe845401"
+    }
+  },
+  "tasks": [
+    {
+      "task": "uci-sms-spam",
+      "visible_rows": 4459,
+      "hidden_rows": 1115,
+      "public_columns": [
+        "id",
+        "text"
+      ],
+      "file_sha256": {
+        "sample_submission.csv": "f7bd72ed7fa01c707bb5253f13f3b06bff6aed4a90ce8b155a0eb4fd60e12051",
+        "test.csv": "f89b7bb51ecacbebf8c793c09ab56734d58e358c085b00defd93f7b1c559918e",
+        "train.csv": "3b08eaeb9d81a0df1bed7e7e2af28bc4418dc10e521a7587a217698bfa5a1a6b",
+        "private/answers.csv": "e04302f86ef34c74897dfd42e377454084985fac2c7562b63dd5345789f153ce"
+      }
+    },
+    {
+      "task": "uci-adult-income",
+      "visible_rows": 32561,
+      "hidden_rows": 16281,
+      "public_columns": [
+        "id",
+        "age",
+        "workclass",
+        "fnlwgt",
+        "education",
+        "education_num",
+        "marital_status",
+        "occupation",
+        "relationship",
+        "race",
+        "sex",
+        "capital_gain",
+        "capital_loss",
+        "hours_per_week",
+        "native_country"
+      ],
+      "file_sha256": {
+        "sample_submission.csv": "99239704c2356285744886cf8bc87a2a1469ea1145dc2c916dedba1864edbc2e",
+        "test.csv": "f9aedb71b3b59e7e8204cd140547df1d7d8385984934112bb881234c99c7b690",
+        "train.csv": "0dc2ad4494209eb78ac66bf13b6609b527559c0f6889a26b200f38e836b74182",
+        "private/answers.csv": "af5235de4898a44cffc65b21dd06350820848fbd9a62ced512064a3edc9bc49c"
+      }
+    },
+    {
+      "task": "uci-bike-sharing",
+      "visible_rows": 15211,
+      "hidden_rows": 2168,
+      "public_columns": [
+        "instant",
+        "dteday",
+        "season",
+        "yr",
+        "mnth",
+        "hr",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed"
+      ],
+      "file_sha256": {
+        "sample_submission.csv": "210d7add33fa9d96ba62f99b12b3e96eae949d2cd45ecc315d6a93438f52861b",
+        "test.csv": "1c7c744abc3d2647c9eaf8e1549b29531a56ec888a8950df5555f164ebef94e3",
+        "train.csv": "53a79686b2dbb1084c17f32a8ae203bca81c0a96011684adba8d86abd55123ec",
+        "private/answers.csv": "6a560cc0d4e711d2276941c519aa7c8f62d1b685dd21dd69bfb9cf8b769bfeb1"
+      }
+    }
+  ]
+}

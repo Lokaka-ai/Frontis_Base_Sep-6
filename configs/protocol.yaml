@@ -1,0 +1,15 @@
+schema_version: 1
+name: cpu-frontis-opencode-12h-v1
+model_id: mimo-v2.5
+tasks:
+  uci-sms-spam: {metric: log_loss, execution_timeout: 120}
+  uci-adult-income: {metric: log_loss, execution_timeout: 180}
+  uci-bike-sharing: {metric: rmsle, execution_timeout: 180}
+seeds: [2026090601, 2026090602, 2026090603]
+# One run per invocation. Seed 1 is the initial deliverable; 2/3 are optional replicates.
+budget_seconds: 43200
+budget_basis: cumulative_candidate_slot_wall_seconds
+budget_boundary: finish_current_slot_then_stop_before_next
+candidate_cpu_count: 2
+candidate_memory: 6g
+transport_attempts: 3

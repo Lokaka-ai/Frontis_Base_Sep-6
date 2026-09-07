@@ -1,0 +1,14 @@
+# Copy to environment.yaml; relative paths resolve from this repository.
+# Resource values below define our candidate envelope, not your physical machine.
+data_root: data
+runs_root: runs
+api:
+  base_url: https://opencode.ai/zen/go/v1
+  key_env: OPENCODE_API_KEY
+sandbox:
+  backend: docker  # supplied reference implementation; see docs/ADAPTING.md
+  image: frontis-cpu:0.1
+  cpu_count: 2
+  memory: 6g
+  pids_limit: 256
+  tmpfs_size: 1g

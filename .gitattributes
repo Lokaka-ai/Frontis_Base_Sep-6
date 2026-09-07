@@ -1,0 +1,3 @@
+# Preserve exact third-party source and historical patch bytes.
+upstream/** -whitespace
+provenance/*.patch -whitespace

@@ -1,0 +1,90 @@
+time_budget: null
+model_plus_sandbox_time_budget: 43200
+n_samples_per_task: 1
+candidates_per_step: 5
+task_concurrency: 1
+llm_concurrency: 1
+sandbox_concurrency: 1
+strict_resume: false
+leaderboard_dir: null
+llm:
+  api: litellm
+  model_id: mimo-v2.5
+  base_url: https://opencode.ai/zen/go/v1
+  generation_kwargs:
+    temperature: 0.6
+    top_p: 0.95
+    max_tokens: 8192
+    seed: null
+    request_timeout_seconds: 300
+    transport_retries: 0
+  use_azure_client: false
+  provider: opencode
+solver:
+  step_limit: 1000000
+  available_packages:
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  num_islands: 1
+  max_island_size: 500
+  crossover_prob: 0.5
+  migration_prob: 0.0
+  initial_temp: 1.0
+  final_temp: 1.0
+  num_generations_till_migration: 999
+  num_generations_till_crossover: 2
+  num_generations: 1000000
+  individuals_per_generation: 5
+  max_debug_depth: 10
+  max_debug_time: 21600
+  max_llm_call_retries: 1
+  data_preview: false
+  use_test_score: false
+  use_complexity: false
+  execution_timeout: 180
+  export_search_results: true
+  experience:
+    enabled: true
+    prompt_score_sanitization:
+      enabled: true
+      hide_selection_metric: true
+    parent_selection:
+      enabled: true
+      selection_policy: frontis
+      novelty_policy: method_family
+      weights:
+        score: 1.0
+        delta: 0.4
+        novelty: 0.25
+      component_normalization:
+        score: minmax
+        delta: minmax
+        hybrid_minmax_weight: 0.5
+    prompt_memory:
+      enabled: true
+      use_base_memory: false
+      max_related_cards: 3
+      sibling_ranking:
+        weights:
+          score: 1.0
+          delta: 0.4
+          novelty: 0.25
+      improve:
+        ancestor_k: 3
+        sibling_k: 3
+      crossover:
+        ancestor_k: 2
+        sibling_k: 2
+      debug:
+        max_related_cards: 8
+    slot_checkpointing: true
+  final_submit: false
+interpreter:
+  use_symlinks: true
+  format_tb_ipython: false
+logger:
+  use_console: false
+  use_json: true
+  use_wandb: false

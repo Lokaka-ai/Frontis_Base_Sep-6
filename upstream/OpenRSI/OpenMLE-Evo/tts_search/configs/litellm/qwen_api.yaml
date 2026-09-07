@@ -1,0 +1,17 @@
+_target_: litellm.Router
+_convert_: all
+
+model_list:
+  - model_name: ${oc.env:QWEN_MODEL_ID}
+    litellm_params:
+      model: openai/${oc.env:QWEN_MODEL_ID}
+      api_key: ${oc.env:QWEN_API_KEY}
+      base_url: ${oc.env:QWEN_BASE_URL}
+      temperature: 0.6
+      top_p: 0.95
+      max_tokens: ${oc.decode:${oc.env:OPENMLE_MAX_TOKENS,8192}}
+      timeout: ${oc.decode:${oc.env:OPENMLE_LLM_TIMEOUT,180}}
+      num_retries: ${oc.decode:${oc.env:OPENMLE_LLM_RETRIES,1}}
+      seed: ${oc.decode:${oc.env:OPENMLE_REQUEST_SEED,20260829}}
+      extra_body:
+        enable_thinking: ${oc.decode:${oc.env:QWEN_ENABLE_THINKING,false}}

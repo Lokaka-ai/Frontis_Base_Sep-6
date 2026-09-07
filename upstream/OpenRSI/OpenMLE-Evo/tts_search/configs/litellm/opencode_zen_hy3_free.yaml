@@ -1,0 +1,14 @@
+_target_: litellm.Router
+_convert_: all
+
+model_list:
+  - model_name: ${oc.env:OPENCODE_MODEL_ID,hy3-free}
+    litellm_params:
+      model: openai/${oc.env:OPENCODE_MODEL_ID,hy3-free}
+      api_key: ${oc.env:OPENCODE_API_KEY}
+      base_url: ${oc.env:OPENCODE_BASE_URL,https://opencode.ai/zen/v1}
+      temperature: 0.6
+      top_p: 0.95
+      max_tokens: ${oc.decode:${oc.env:OPENMLE_MAX_TOKENS,8192}}
+      timeout: ${oc.decode:${oc.env:OPENMLE_LLM_TIMEOUT,180}}
+      num_retries: ${oc.decode:${oc.env:OPENMLE_LLM_RETRIES,1}}

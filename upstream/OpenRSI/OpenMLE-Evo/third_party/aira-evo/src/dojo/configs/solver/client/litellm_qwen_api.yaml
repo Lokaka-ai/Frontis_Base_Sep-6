@@ -1,0 +1,7 @@
+_target_: dojo.config_dataclasses.client.base.ClientConfig
+api: litellm
+model_id: ${oc.env:QWEN_MODEL_ID}
+base_url: ${oc.env:QWEN_BASE_URL}
+api_key: ${oc.env:QWEN_API_KEY}
+use_azure_client: false
+provider: qwen

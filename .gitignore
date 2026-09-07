@@ -1,0 +1,15 @@
+/.venv/
+/.env
+/configs/environment.yaml
+/data/
+/private/
+/runs/
+/exports/
+/artifacts/
+*.sif
+*.tar.gz
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.DS_Store

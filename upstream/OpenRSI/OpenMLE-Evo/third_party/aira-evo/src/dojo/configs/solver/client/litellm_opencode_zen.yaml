@@ -1,0 +1,7 @@
+_target_: dojo.config_dataclasses.client.base.ClientConfig
+api: litellm
+model_id: ${oc.env:OPENCODE_MODEL_ID,hy3-free}
+base_url: ${oc.env:OPENCODE_BASE_URL,https://opencode.ai/zen/v1}
+api_key: ${oc.env:OPENCODE_API_KEY}
+use_azure_client: false
+provider: opencode

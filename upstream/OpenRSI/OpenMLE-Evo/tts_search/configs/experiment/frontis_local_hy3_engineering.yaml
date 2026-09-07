@@ -1,0 +1,24 @@
+# @package _global_
+defaults:
+  - /experiment: default
+  - /litellm: opencode_zen_hy3_free
+  - /search: airaevo
+  - _self_
+
+experiment_name: frontis_local_hy3_engineering
+max_steps: 9
+time_budget: 7200
+model_plus_sandbox_time_budget: 10800
+n_samples_per_task: 1
+
+search:
+  runner:
+    llm:
+      api: litellm
+      use_azure_client: false
+      provider: opencode
+    solver:
+      num_islands: 1
+      num_generations: 4
+      individuals_per_generation: 2
+      data_preview: false

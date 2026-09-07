@@ -1,0 +1,46 @@
+uuid: frontis-local-uci-bike-sharing-v1
+task_name: uci-bike-sharing
+task: count-regression
+source: UCI-275
+modality: temporal-tabular
+benchmark: mlebench
+data_dir: /datasets/validation/uci-bike-sharing
+interpreter_data_dir: data/s1/uci-bike-sharing
+submit_dir: validation
+submit_data_dir_root: /datasets/validation
+evaluation_protocol: self_valid
+submit_repeats: 1
+higher_is_better: false
+theoretical_max: null
+theoretical_min: 0.0
+leaderboard_max: null
+leaderboard_min: null
+leaderboard_dir: null
+task_description: >-
+  Predict hourly bike-rental count cnt from calendar, weather, and temporal
+  features. Hidden evaluation is a later chronological period and uses RMSLE.
+  Candidate execution is CPU-only and offline.
+data_description: >-
+  DATA_DIR contains train.csv with instant,dteday, calendar/weather features,
+  and cnt; test.csv with the same fields except cnt; and
+  sample_submission.csv with instant,cnt. The additive target components
+  casual and registered are intentionally absent. Use only numpy, pandas,
+  scipy, and scikit-learn. Hidden targets are unavailable.
+public_system_prompt: "Use only visible files and installed offline CPU libraries."
+public_user_prompt: >-
+  Read DATA_DIR from the environment. Use deterministic time-aware validation
+  entirely within visible training dates, print exactly
+  `Final Validation Score: <number>` for visible-validation RMSLE, fit on all
+  visible rows, and write ./submission.csv with exactly instant,cnt in test row
+  order. Predictions must be finite and nonnegative. Do not use network or GPU
+  code.
+sandbox:
+  resource: cpu
+  base_url: http://127.0.0.1:6580
+  job_timeout: 180
+  wait_timeout: 240
+  poll_interval: 1
+  use_score2reward: false
+  use_clear_run_log_score: true
+  trust_model_validation_score: false
+  verify_tls: false
