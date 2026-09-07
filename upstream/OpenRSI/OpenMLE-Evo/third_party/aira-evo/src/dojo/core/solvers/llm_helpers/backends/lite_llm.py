@@ -249,6 +249,10 @@ class LiteLLMClient:
         function_name: Optional[str] = None,
         function_description: Optional[str] = None,
     ) -> Tuple[OutputType, Dict[str, Any]]:
+        if self.model.removeprefix("openai/") == "muse-spark-1.3-contributor":
+            from frontis_mila.responses_api import query
+            return query(base_url=self.base_url, api_key=self.api_key, model=self.model,
+                         messages=messages, generation_kwargs=dict(model_kwargs or {}))
         # Prepare function specifications if provided
         func_spec = None
         if json_schema and function_name and function_description:

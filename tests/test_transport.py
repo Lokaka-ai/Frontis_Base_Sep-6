@@ -20,7 +20,7 @@ def test_generic_http500_is_retried_with_same_messages(tmp_path, monkeypatch):
             raise litellm.APIError(
                 status_code=500,
                 message="provider failure",
-                model="mimo-v2.5",
+                model="muse-spark-1.3-contributor",
                 llm_provider="openai",
             )
         return "OK", {"total_tokens": 2}

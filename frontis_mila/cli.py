@@ -118,23 +118,17 @@ print("Final Validation Score: 1.0")
         report["tasks"][task] = {"execution_job_id": result.job_id, "score": score}
     report["live_api_verified"] = False
     if live:
-        import httpx
+        from frontis_mila.responses_api import query
 
-        key = os.environ[env["api"]["key_env"]]
-        response = httpx.post(
-            env["api"]["base_url"].rstrip("/") + "/chat/completions",
-            headers={"Authorization": f"Bearer {key}"},
-            json={
-                "model": yaml.safe_load((ROOT / "configs/protocol.yaml").read_text())[
-                    "model_id"
-                ],
-                "messages": [{"role": "user", "content": "Reply with OK."}],
-                "max_tokens": 128,
-            },
-            timeout=120,
+        model = yaml.safe_load((ROOT / "configs/protocol.yaml").read_text())["model_id"]
+        _, usage = query(
+            base_url=env["api"]["base_url"],
+            api_key=os.environ[env["api"]["key_env"]],
+            model=model,
+            messages=[{"role": "user", "content": "Reply with OK."}],
+            generation_kwargs={"max_tokens": 128, "request_timeout_seconds": 120},
         )
-        response.raise_for_status()
-        write(directory / "api-probe.json", response.json())
+        write(directory / "api-probe.json", usage)
         report["live_api_verified"] = True
     write(directory / "report.json", report)
     write(Path(env["runs_root"]) / "preflight.json", report)

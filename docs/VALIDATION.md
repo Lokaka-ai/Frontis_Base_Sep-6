@@ -3,7 +3,7 @@
 Local engineering validation performed on 2026-09-06:
 
 - All three public/private data splits reproduced their frozen historical hashes.
-- 43 targeted tests passed: common graders, sandbox mounts and cleanup, policy/RNG
+- 48 targeted tests passed: common graders, sandbox mounts and cleanup, policy/RNG
   invariance, compact action probabilities, transport retry classification,
   pre-slot budget stopping, checkpoint state/restore and integrity rejection.
 - A fake OpenAI-compatible API and real Docker CPU containers exercised the full
@@ -37,7 +37,7 @@ JSON and complete exported test archives. These generated files are not in Git.
 No 12-hour scientific run, real OpenCode smoke, Mila scheduler, or alternative
 container backend has been validated here. Xixian must run the real API preflight
 and excluded search smoke on his deployment. The fake API proves the execution
-and recording path, not MiMo response quality, account quota, or service stability.
+and recording path, not Muse Spark response quality, account quota, or service stability.
 
 Only committed-boundary automatic resume is supported. An interruption inside a
 stochastic slot requires investigation. The 12-hour threshold is a soft boundary
@@ -47,3 +47,8 @@ The upstream optional tree visualizer can report a missing `id` attribute while
 still exporting search JSON. This does not affect the evidence audit; use the
 journal, decision records and our analysis tables. We have not made visualization
 polish a prerequisite for this experiment.
+
+The Muse Spark update additionally tests the Responses endpoint, output-token
+parameter mapping, raw response/usage retention, and HTTP error propagation.
+The full three-task fake-API integration suite passed on the Responses transport.
+Real Muse Spark access still requires Xixian's API preflight.

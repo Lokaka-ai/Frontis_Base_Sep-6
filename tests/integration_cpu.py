@@ -31,7 +31,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         payload = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
-        messages = "\n".join(m["content"] for m in payload["messages"])
+        messages = "\n".join(m["content"] for m in payload["input"])
         if messages.startswith(
             "You are an expert machine learning experiment analyst."
         ):
@@ -51,23 +51,22 @@ class Handler(BaseHTTPRequestHandler):
                 else CODE
             )
             content = "Engineering fixture.\n```python\n" + code + "\n```"
+        assert self.path == "/v1/responses"
+        assert payload["model"] == "muse-spark-1.3-contributor"
+        assert "max_output_tokens" in payload and "max_tokens" not in payload
         data = {
             "id": f"fixture-{time.time_ns()}",
-            "object": "chat.completion",
-            "created": int(time.time()),
-            "model": "mimo-v2.5",
-            "choices": [
+            "object": "response",
+            "status": "completed",
+            "model": payload["model"],
+            "output": [
                 {
-                    "index": 0,
-                    "message": {"role": "assistant", "content": content},
-                    "finish_reason": "stop",
+                    "type": "message",
+                    "role": "assistant",
+                    "content": [{"type": "output_text", "text": content}],
                 }
             ],
-            "usage": {
-                "prompt_tokens": 100,
-                "completion_tokens": 100,
-                "total_tokens": 200,
-            },
+            "usage": {"input_tokens": 100, "output_tokens": 100, "total_tokens": 200},
         }
         body = json.dumps(data).encode()
         self.send_response(200)

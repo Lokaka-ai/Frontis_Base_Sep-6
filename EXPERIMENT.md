@@ -3,7 +3,7 @@
 ## Objective and estimand
 
 Describe the search trajectory produced by standard synchronous OpenMLE-Evo with
-OpenCode Go `mimo-v2.5` under a fixed CPU envelope and a 43,200-second cumulative
+OpenCode Go `muse-spark-1.3-contributor` under a fixed CPU envelope and a 43,200-second cumulative
 candidate-slot budget on each of three historical UCI tasks. A statistical unit is
 one complete task/run. Generations, related candidates and repeated parents are
 dependent observations. This study generates baseline evidence and hypotheses for
@@ -76,8 +76,8 @@ score and is reported as unsuccessful, not silently dropped.
 
 ## Sampling, failures and controls
 
-Controller seeds: 2026090601, 2026090602, 2026090603. Model seed is null because the
-provider's earlier accepted seed was not repeatable. These are stochastic runs,
+Controller seeds: 2026090601, 2026090602, 2026090603. Model seed is null; deterministic
+model sampling has not been established for Muse Spark through OpenCode. These are stochastic runs,
 not seed-paired model outcomes. First deliverable is one run on each task; optional
 replicates use the remaining seeds and are reported separately.
 
@@ -97,5 +97,5 @@ interventions require new isolated runs or explicitly verified clones.
 Lead with descriptive observations. Repeated stagnation, parent quality versus
 child gain, crossover performance and novelty effects are hypotheses until a
 matching intervention tests them. Three tasks here are UCI adaptations, not three
-official MLE-Bench competitions. Results from MiMo do not establish Frontis-MA1
+official MLE-Bench competitions. Results from Muse Spark do not establish Frontis-MA1
 model performance, GPU-task performance or general benchmark superiority.

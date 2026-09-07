@@ -1,7 +1,7 @@
 # Frontis CPU experiments with OpenCode
 
 Run the original Frontis selection controller in local, standard OpenMLE-Evo on
-three CPU tasks. OpenCode Go (`mimo-v2.5`) generates programs; isolated local
+three CPU tasks. OpenCode Go **Muse Spark 1.3 Contributor** (`muse-spark-1.3-contributor`) generates programs; isolated local
 containers execute them. This is **not a Frontis-MA1 model reproduction** or an
 MLE-Bench leaderboard submission.
 
@@ -28,6 +28,21 @@ recorded. Read [EXPERIMENT.md](EXPERIMENT.md) before interpreting results.
 
 Start with one run per task. Extra independent replicates are optional, using the
 other listed controller seeds. A seed does **not** make the remote model deterministic.
+
+## Model and API route
+
+Muse Spark uses OpenCode's `/responses` endpoint, not `/chat/completions`.
+The adapter maps `max_tokens` to `max_output_tokens` and retains the full response
+and usage metadata. Both preflight and search use this transport.
+[OpenCode model and endpoint documentation](https://opencode.ai/docs/go/#endpoints).
+
+The Contributor tier permits provider training on prompts and completions and has
+regional availability restrictions. Xixian should check availability and any
+Contributor opt-in in his OpenCode account before the real preflight.
+[OpenCode privacy terms](https://opencode.ai/docs/go/#privacy).
+
+This is protocol `cpu-frontis-opencode-muse-12h-v2`. Use new run IDs and rerun
+preflight after updating; do not resume a MiMo run with Muse Spark.
 
 ## 1. Install
 

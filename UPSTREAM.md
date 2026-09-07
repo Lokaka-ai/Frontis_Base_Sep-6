@@ -28,6 +28,7 @@ claim bitwise equivalence to every upstream release or to paper trajectories.
 
 ## This repository's changes
 
+- Muse Spark 1.3 Contributor Responses transport with recorded request/response metadata.
 - Portable CPU/OpenCode run lifecycle and frozen source/data/environment manifest.
 - A documented 12-hour cumulative slot budget, clean boundary pause and resume.
 - Additional observational events for operator probabilities and population updates.

@@ -1,6 +1,6 @@
 schema_version: 1
-name: cpu-frontis-opencode-12h-v1
-model_id: mimo-v2.5
+name: cpu-frontis-opencode-muse-12h-v2
+model_id: muse-spark-1.3-contributor
 tasks:
   uci-sms-spam: {metric: log_loss, execution_timeout: 120}
   uci-adult-income: {metric: log_loss, execution_timeout: 180}
