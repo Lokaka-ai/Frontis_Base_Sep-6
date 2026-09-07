@@ -36,7 +36,7 @@ and usage metadata. Both preflight and search use this transport.
 [OpenCode model and endpoint documentation](https://opencode.ai/docs/go/#endpoints).
 
 The Contributor tier permits provider training on prompts and completions and has
-regional availability restrictions. Xixian should check availability and any
+regional availability restrictions. You should check availability and any
 Contributor opt-in in his OpenCode account before the real preflight.
 [OpenCode privacy terms](https://opencode.ai/docs/go/#privacy).
 
