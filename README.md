@@ -5,8 +5,7 @@ three CPU tasks. OpenCode Go (`mimo-v2.5`) generates programs; isolated local
 containers execute them. This is **not a Frontis-MA1 model reproduction** or an
 MLE-Bench leaderboard submission.
 
-This repository is the experiment handoff to Xixian. The analysis team needs the
-**complete exported run archive**, not just the best program or final score.
+The analysis team needs the **complete exported run archive**, not just the best program or final score.
 You may adapt paths, scheduling and container deployment to your infrastructure.
 Coordinate changes to the search policy, model, dataset, metric, candidate limits
 or budget before starting a formal run.
