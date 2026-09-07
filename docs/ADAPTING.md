@@ -17,7 +17,7 @@ independent equivalent resource envelopes.
 ## If Docker is unavailable
 
 The shipped backend is a concrete reference implementation, not a promise that
-Docker is available on your cluster. Xixian may replace `docker_command` and
+Docker is available on your cluster. You may replace `docker_command` and
 `run_candidate` in `frontis_local/sandbox/runner.py` or supply an equivalent local
 container backend. Keep the `ExecutionResult` contract and persist the same job
 artifacts. Record the new backend/configuration/image identity in the manifest,
