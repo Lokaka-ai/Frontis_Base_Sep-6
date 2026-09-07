@@ -50,8 +50,8 @@ reference sandbox, and access to the OpenCode API. **No GPU or local LLM is need
 The CPU sandbox limits are experiment settings, not assumptions about your machine.
 
 ```bash
-git clone <the-repository-url>
-cd frontis-mila
+git clone https://github.com/Lokaka-ai/Frontis_Base_Sep-6.git
+cd Frontis_Base_Sep-6
 bash scripts/setup.sh
 cp configs/environment.example.yaml configs/environment.yaml
 ```
